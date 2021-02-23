@@ -12,4 +12,5 @@ type WriteToInfluxDB struct {
 
 func (w *WriteToInfluxDB) Write(wc chan string) {
 	fmt.Print(<-wc)
+
 }
