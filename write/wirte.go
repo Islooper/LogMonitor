@@ -1,16 +1,18 @@
 package write
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Writer interface {
-	Writer(wc chan string)
+	Write(wc chan string)
 }
 
 type WriteToInfluxDB struct {
-	dbConfig string
+	DbConfig string
 }
 
 func (w *WriteToInfluxDB) Write(wc chan string) {
-	fmt.Print(<-wc)
-
+	fmt.Print(strings.ToUpper(<-wc))
 }

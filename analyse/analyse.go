@@ -6,14 +6,13 @@ import (
 )
 
 type LogProcess struct {
-	r chan string
-	w chan string
+	R chan string
+	W chan string
 	monitor.Reader
 	write.Writer
 }
 
-func (l *LogProcess) analyse() {
-	data := <-l.r
-
-	l.w <- data
+func (l *LogProcess) Analyse() {
+	data := <-l.R
+	l.W <- data
 }

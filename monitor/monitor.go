@@ -5,10 +5,9 @@ type Reader interface {
 }
 
 type ReadFromPath struct {
-	path string
+	Path string
 }
 
 func (r *ReadFromPath) Read(rc chan string) {
-	data := "test"
-	rc <- data
+	rc <- r.Path
 }
